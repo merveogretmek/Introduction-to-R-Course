@@ -1,5 +1,6 @@
 # HOMEWORK 1
-
+library(data.table)
+library(dplyr)
 # Question 1
 
 DT <- data.table(ID = c(1:60), gender = c("m", "m", "m", "m", "f", "f"), w = c(1:3)) 
@@ -61,9 +62,34 @@ DT$wm <- DT$w == 1
 setkeyv(DT, "ID")
 
 #j)
-merge(DT, DX, by = "gender")  #later
+
+DTM <- rbind(DT, DX, fill = TRUE)
 
 #k)
+
+sum(DTM[which(DTM[,1]<23),3])
+
+#l)
+
+DTS1 <- rbind(subset(DT, gender == "m")[sample(2),],subset(DT, gender == "f")[sample(2),])
+
+#m)
+
+DT[ DT$w %in% tapply(DT$w, DT$gender, min), ]
+#n)
+
+aggregate(DT[ , 3], list(DT$gender), mean)
+
+#o)
+
+DT %>%                      
+  group_by(gender) %>% 
+  summarise(w = n())
+
+DT %>%                      
+  group_by(gender) %>% 
+  summarise(sd = sd(w))
+
 
 #Question 2
 
@@ -81,19 +107,69 @@ for (i in 1:length(ID)){
 
 ID <- c(1:1000)
 
-samp1 <- runif(min = 1, max = 1000, )
-samp2  <- sample(ID, prob = 0.1) 
+logvec <- sample(c(TRUE,FALSE), size = 1000, replace = TRUE, prob = c(0.1,0.9)) 
+
 
 # Question 4
 
-#a)
+#a) Finding mean
 
-findMean <- function(X){
-  for (i in 1:ncol(X)) {
-    for (j in 1:nrow(X)) {
-      sum[j] <- 0 + X[i,j]
-    }
+meanCol <- NULL
+
+findMean <- function(dt){
+  for (i in 1:ncol(dt)){
+    x[i] <- mean(dt[,i])
+    i <- i + 1
   }
-  meanvec <- sum[j]/nrow(X)
-  return(meanvec)
+  return(x)
+}
+
+#b) Finding NA
+
+df <-data.frame(x=c(1,2,NA,4,5,NA))
+
+x <- NULL
+
+findMiss <- function(DT){
+  for (i in 1:nrow(DT)) {
+    x[i] <- is.na(DT[i,])
+    i <- i + 1
+  }
+  return(x)
+}
+
+#c) Finding factorial
+
+fact = 1
+
+findFactorial <- function(x){
+  if(x < 0) {
+    print("Factorial does not exist for negative numbers.")
+  } else if(x == 0) {
+    print("The factorial of 0 is 1.")
+  } else {
+    for(i in 1:x) {
+      fact = fact* i
+      
+    }
+    return(fact)
+  }
+  
+}
+
+# Finding integer
+
+'%!in%' <- Negate('%in%')
+
+findInteger <- function(v,x){
+  for (i in 1:length(v)){
+    if (v[i] == x) {
+      return(i)
+      break
+    }
+    
+    if (x %!in% v) {
+      return(NA)}
+  }
+  
 }
