@@ -155,7 +155,7 @@ findFactorial <- function(x){
   
 }
 
-# Finding integer
+#d) Finding integer
 
 findInteger <- function(v){
   for (i in 1:length(v)){
