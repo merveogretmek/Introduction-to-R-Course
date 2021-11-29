@@ -108,7 +108,7 @@ for (i in 1:length(ID)){
 ID <- c(1:1000)
 
 logvec <- sample(c(TRUE,FALSE), size = 1000, replace = TRUE, prob = c(0.1,0.9)) 
-
+logvec
 
 # Question 4
 
@@ -126,8 +126,6 @@ findMean <- function(dt){
 
 #b) Finding NA
 
-df <-data.frame(x=c(1,2,NA,4,5,NA))
-
 x <- NULL
 
 findMiss <- function(DT){
@@ -135,7 +133,8 @@ findMiss <- function(DT){
     x[i] <- is.na(DT[i,])
     i <- i + 1
   }
-  return(x)
+  sum <- sum(x)
+  return(sum)
 }
 
 #c) Finding factorial
@@ -150,7 +149,6 @@ findFactorial <- function(x){
   } else {
     for(i in 1:x) {
       fact = fact* i
-      
     }
     return(fact)
   }
@@ -159,17 +157,23 @@ findFactorial <- function(x){
 
 # Finding integer
 
-'%!in%' <- Negate('%in%')
-
-findInteger <- function(v,x){
+findInteger <- function(v){
   for (i in 1:length(v)){
-    if (v[i] == x) {
-      return(i)
-      break
-    }
+    if (is.na(v[i])){ next
+      
+  } else if(round(v[i]) == v[i]){
+    n <- i
+    return(n)
+  }
+    else if(!isFALSE(all(v != floor(v)))){
+    return(NA)}
     
-    if (x %!in% v) {
-      return(NA)}
   }
   
 }
+
+
+
+
+
+
