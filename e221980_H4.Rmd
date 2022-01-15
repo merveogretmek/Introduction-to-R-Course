@@ -1,0 +1,369 @@
+---
+title: 
+output: html_document
+bibliography: references.bib
+link-citations: yes
+---
+<style type="text/css">
+.main-container {
+  margin-left: 8cm;
+  margin-right: 8cm;
+}
+</style>
+
+#### Merve Öğretmek - 2219806
+
+## Determinants of Economic Growth 
+
+Economic growth theories and models illustrate the various ways in which current economic activity may impact future economic developments, as well as the sources that may contribute to continuing economic growth.
+According to @Boldeanu1, researchers and economists emphasize the importance of economic expansion to the progress and well-being of humanity. Economic growth theories have developed over time in response to the era and the dynamics of the economy. Improvements in mathematical and statistical tools have also had a substantial influence on the development of new notions.
+
+@Petrakos1 argued that despite the lack of a unified theory, multiple incomplete theories exist that describe the significance of various elements in influencing economic growth. There are two major strands that may be distinguished: the neoclassical, which is based on Solow's growth model, has emphasized the role of investment, and the more modern theory of endogenous growth created by Romer and Lucas has emphasized human capital and innovation ability.
+Furthermore, Myrdal's cumulative causation theory and the New Economic Geography school have made significant contributions to economic growth. Furthermore, various hypotheses have emphasized the important role that non-economic factors have in economic performance. These changes sparked a debate that distinguishes between local and fundamental issues.
+
+In their research, @Boldeanu1 stated that the drivers of economic growth are interconnected elements that influence an economy's growth rate. There are six key elements that influence growth, two of which are supply determinants while the other two are efficiency and demand. Natural resources, capital goods, human resources, and technology are the four supply variables that have a direct impact on the value of products and services delivered. 
+
+Economic growth as measured by GDP refers to a rise in the GDP growth rate, but what influences the increase of each component varies greatly. Public spending, capital creation, private or public investment, employment rates, currency rates, and so on all have distinct effects on economic growth, and we should keep in mind that these variables have varying consequences depending on whether the states are developed or not. There are other socio-political aspects and events that have a significant impact on a country's economic progress (@Boldeanu1). In addition, there are distinctions between economic and non-economic drivers. "Proximate" or economic determinants include factors such as capital accumulation, technological progress, and labor, whereas "ultimate" or non-economic sources include factors such as government efficiency, institutions, political and administrative systems, cultural and social factors, geography, and demography (@Acemoglu1).
+
+@Solow1's neoclassical model is the starting point for conventional economic growth theory. The model's fundamental assumptions are as follows: continuous returns to scale, declining marginal productivity of capital, exogenously determined technical advancement, and capital-labor substitutability. As a result, the model emphasizes the savings or investment ratio as a key factor of short-run economic development. Although technological advancement is crucial in the long run, it is viewed as external to the economic system and hence is not effectively investigated by this model. In terms of convergence/divergence, the model forecasts convergence in growth rates based on the assumption that impoverished economies will develop faster than affluent economies (@Petrakos1).
+
+More recent analyses, which assume constant and growing returns to capital, have called into question the importance of technical advancement as a fundamental driver of long–run economic growth. These endogenous growth theories claim that the introduction of new accumulation variables, such as knowledge, innovation, and so on, will result in self-sustaining economic expansion (@Petrakos1).
+
+Another, probably less prominent, body of literature is Myrdal and Kaldor's (1957) growth hypothesis of cumulative causality (1970). The notion of 'cumulative causation,' in which beginning conditions affect economic growth of locations in a self-sustaining and progressive manner, is central to this theory. As a result, the most likely conclusion is the growth of economic inequality among economies. Although there are positive spillovers that spread growth from more advanced to less advanced countries, they are incapable of putting the system back into balance if market forces alone are allowed to operate.To put it another way, economic policy must be used to remedy these inequalities. In contrast to the theories discussed above, theories of cumulative causation have a medium-term perspective and are sometimes referred to as "soft" development theories owing to a lack of applied mathematical rigour. However, there are some parallels between the cumulative causation method and the notion of endogenous growth (@Petrakos1).
+
+## Data
+
+The data used in this research is obtained from "pwt10" library. For the model, the data of 183 countries between the years 1999-2019 is used. The variables in question are:
+
+<table style="width:80%">
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+  <tr>
+    <th>Variable</th>
+    <th>Code</th>
+    <th>Definition</th>
+  </tr>
+  <tr>
+    <td><i>employment</i></td>
+    <td>emp</td>
+    <td>Number of persons engaged (in millions)</td>
+  </tr>
+   <tr>
+    <td><i>capital stock</i></td>
+    <td>cn</td>
+    <td>Capital stock at current PPPs (in mil. 2017US$)</td>
+  </tr>
+  <tr>
+    <td><i>total factor productivity</i></td>
+    <td>ctfp</td>
+    <td>TFP level at current PPPs (USA=1)</td>
+  </tr>
+  
+</table> 
+
+### Summary Statistics
+
+<table style="width:80%">
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+  <tr>
+    <th>Variable</th>
+    <th>min</th>
+    <th>median</th>
+    <th>mean</th>
+    <th>max</th>
+    <th>NA</th>
+  </tr>
+  <tr>
+    <td><i>employment</i></td>
+    <td>0.0018 </td>
+    <td>3.3352</td>
+    <td>16.5763 </td>
+    <td>799.3066</td>
+    <td>109</td>
+  </tr>
+  <tr>
+    <td><i>capital stock</i></td>
+    <td>413</td>
+    <td>198394</td>
+    <td>2086345</td>
+    <td>81598688</td>
+    <td>63</td>
+  </tr>
+  <tr>
+    <td><i>total factor productivity</i></td>
+    <td>0.0542</td>
+    <td>0.6510</td>
+    <td>0.6569</td>
+    <td>2.3980</td>
+    <td>1365</td>
+  </tr>
+   
+</table> 
+
+
+## The Model
+
+$$
+Y_{it} = \alpha_0 + \alpha_1 X_{1it} + \alpha_2 X_{2it} + \alpha_3 X_{3it} + \epsilon_{it}
+$$
+
+where
+
+<body>
+    <ul>
+      <li>X <sub>1</sub> = employment</li>
+      <li>X <sub>2</sub> = capital stock</li>
+      <li>X <sub>3</sub> = total factor productivity</li>
+      <li>Y = real gross domestic product</li>
+    </ul>
+</body>
+
+### Estimations
+
+#### Fixed Effects
+
+The model is estimated as
+
+$$
+Y_{it} = \underset{(22.043)}{28077.34} X_{1it} + \underset{(79.356)}{0.15}  X_{2it} + \underset{(14.078)}{452971.67} X_{3it} + \epsilon_{it} 
+$$
+<table style="width:80%">
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+  <tr>
+    <th>Predictors</th>
+    <th>Estimates</th>
+    <th>CI</th>
+    <th>p</th>
+  </tr>
+  <tr>
+    <td><i>employment</i></td>
+    <td>28077.34</td>
+    <td>25579.57 – 30575.11</td>
+    <td><0.001</td>
+  </tr>
+  <tr>
+    <td><i>capital stock</i></td>
+    <td>0.15</td>
+    <td>0.15 – 0.15</td>
+    <td><0.001</td>
+  </tr>
+  <tr>
+    <td><i>total factor productivity</i></td>
+    <td>452971.67</td>
+    <td>389877.00 – 516066.34</td>
+    <td><0.001</td>
+  </tr>
+  <tr>
+    <td><b>Observations: 2478</b></td>
+  </tr>
+   <tr>
+    <td><b>R2 / R2 adjusted: 0.996 / 0.996</b></td>
+  </tr>
+  </table> 
+
+<p>&nbsp;</p>
+
+Firstly, we can evaluate the model with two ways for now. One can see that for every variable, p-value is less than 0.05 which means that these variables (employment, capital stock, total factor productivity) are significant in explaning economic growth. Another way to assess to model is checking the R-square and since it is very close to 1, it indicates that independent variables can explain the 99.6% of variations in dependent variable. 
+
+
+```{r, echo=FALSE}
+library(pwt10)
+library(data.table)
+library(ggplot2)
+
+data("pwt10.0")
+
+setDT(pwt10.0)
+
+data <- subset(pwt10.0, year %in% 1999:2019)
+scatter <- ggplot(data, aes(x=cgdpo, y=cn)) + geom_point()
+
+```
+
+#### Residual Plots
+
+```{r, echo=FALSE, warning=FALSE}
+model_fe <- lm(formula = cgdpo ~ emp + cn + ctfp + factor(country) - 1, data = data)
+plot(model_fe)
+```
+
+##### (1) Residual vs Fitted
+
+The first plot shows that there is no heterocedasticity problem in the model since the most of the points are distributed close to the line.
+
+##### (2) Normal Q-Q
+
+The second plot, Normal Q-Q, shows that residuals are following a normal distribution.
+
+##### (3) Scale-Location
+
+This plot also shows that homocedasticity assumption is satisfied in the model for two reasons. Firstly, plot draws a roughly horizontal line and secondly there is no pattern in the distribution of residuals.
+
+##### (4) Residuals vs Leverage
+
+Residuals vs Leverage plot can show that points with high leverage indicates influential points. Removing these points can increase the accuracy of the model.
+
+##### Scatter Plot
+
+```{r ggplot, echo=FALSE, warning=FALSE}
+ggplot(data, aes(x=cgdpo, y=cn)) + geom_point() +
+  labs(
+    title = "Capital Stock and Real GDP",
+    subtitle = "(1999-2019)",
+    x = "Real GDP",
+    y = "Capital Stock"
+  ) + theme_classic()
+```
+
+Another way to detect significancy of a variable on another variable is to check the scatter plot. As one can see, scatter plot of real GDP and capital stock clearly shows a relationship. When capital stock is larger, real GDP is higher which is in line with the economic theory.
+
+##### Correlation Matrix
+
+<table style="width:80%">
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+  <tr>
+    <th> </th>
+    <th>employment</th>
+    <th>capital stock</th>
+    <th>total factor productivity</th>
+  </tr>
+  <tr>
+    <td><b>employment</b></td>
+    <td>1.0000000</td>
+    <td>0.67018595</td>
+    <td>-0.11611203</td>
+  </tr>
+  <tr>
+    <td><b>capital stock</b></td>
+    <td>0.6701859</td>
+    <td>1.00000000</td>
+    <td>0.08469999</td>
+  </tr>
+  <tr>
+    <td><b>total factor productivity</b></td>
+    <td>-0.1161120</td>
+    <td>0.08469999</td>
+    <td>1.00000000</td>
+  </tr>
+   
+</table> 
+
+<p>&nbsp;</p>
+
+It is crucial to check the correlation matrix while constructing a regression model. If there is large correlation between the independent variables of the model, there could be multicollinearity which means that the model is not healthy. Above correlation matrix shows that there is no significant correlation between the independent variables. Therefore, the model does not suffer from multicollinearity.
+
+#### Structural Break
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(strucchange)
+
+```
+
+```{r, echo=FALSE, warning=FALSE,}
+
+model <- efp(formula = cgdpo ~ emp + cn + ctfp - 1, data = data)
+plot(model)
+```
+
+The graph above shows the graph of Recursive CUSUM Test which indicates that there is structural break in the model since the line goes out of the lower bound. Dummy variable could be added to the model to overcome this issue.
+
+### Appendix
+
+#### Libraries
+```{r}
+library(pwt10)
+library(data.table)
+library(ggplot2)
+library(strucchange)
+```
+
+#### Subsetting the Data
+```{r}
+data("pwt10.0")
+
+setDT(pwt10.0)
+
+data <- subset(pwt10.0, year %in% 1999:2019)
+```
+
+#### Model
+
+```{r}
+# Fixed Effects Model
+
+model_fe <- lm(formula = cgdpo ~ emp + cn + ctfp + factor(country) - 1, data = data)
+```
+
+#### Residual Plots
+
+
+```{r, warning=FALSE, fig.show='hide'}
+model_fe <- lm(formula = cgdpo ~ emp + cn + ctfp + factor(country) - 1, data = data)
+plot(model_fe)
+```
+
+#### Scatter Plot
+
+```{r, warning=FALSE, fig.show='hide'}
+ggplot(data, aes(x=cgdpo, y=cn)) + geom_point() +
+  labs(
+    title = "Capital Stock and Real GDP",
+    subtitle = "(1999-2019)",
+    x = "Real GDP",
+    y = "Capital Stock"
+  ) + theme_classic()
+```
+
+#### Correlation Matrix 
+
+```{r, results='hide'}
+# Getting the variables for correlation matrix
+corr_df <- data.table(emp = data$emp,
+                 cn = data$cn,
+                 ctfp = data$ctfp)
+
+cor(corr_df, method = "pearson", use = "complete.obs")
+```
+
+#### CUSUM Test
+
+```{r, results='hide', fig.show='hide'}
+model <- efp(formula = cgdpo ~ emp + cn + ctfp - 1, data = data)
+plot(model)
+```
+
+<p>&nbsp;</p>
+
+#### References 

@@ -1,0 +1,89 @@
+---
+title: "&nbsp;"
+output: html_document
+---
+
+
+<div id="header"></div>
+<div class="left"></div>
+<div class="stuff">
+  <br><br>
+  <h1 style="font-size:25px; text-align:right; font-family:Arial"><b>Merve ÖĞRETMEK </b> </h1>
+  <h2 style="font-size:20px; text-align:right; font-family:Arial">Ankara/Turkey | +905393362970 </h2> 
+  <h2 style="font-size:20px; text-align:right; font-family:Arial"> <a href="https://github.com/merveogretmek">Github</a> | <a href="https://www.linkedin.com/in/merve-ogretmek/">LinkedIn</a> </h2> 
+  <hr />
+  <br>
+  <p style ="font-size:20px; font-family:Impact; color:grey"> <b> EDUCATION </b> </p>
+  <ul>
+    <li style = "font-size:15px; font-family:Palatino"> Middle East Technical University (2016-2017)</li>
+    <ul>
+      <i>ENGLISH PREPARATORY SCHOOL </i>
+      <li>Passed with 82 out of 100</li>
+    </ul>
+    <li style = "font-size:15px; font-family:Palatino">Middle East Technical University (2017-2022)</li>
+    <ul>
+      <i>B.A IN ECONOMICS</i>
+      <li>GPA: 3.64</li>
+    </ul>
+    <li style = "font-size:15px; font-family:Palatino">Middle East Technical University (2019-2022)</li>
+    <ul>
+      <i>MINOR IN STATISTICS</i>
+      <li>GPA: 3.91</li>
+    </ul>
+  </ul>
+  <hr />
+  <p style ="font-size:20px; font-family:Impact; color:grey"> <b> EXPERIENCE </b> </p>
+  <ul>
+    <li style = "font-size:15px; font-family:Palatino">UlakFin Financial Technology Services (2020 Summer)</li>
+    <ul>
+      <i>DATA ANALYST INTERN</i>
+      <li>Extracting financial news data with web scrapping and storing</li>
+    </ul>
+    <li style = "font-size:15px; font-family:Palatino">Google Developer Student Clubs - METU (2020-2021)</li>
+    <ul>
+      <i>MOBILE TEAM CO-LEAD</i>
+      <li>Teaching how to develop mobile applications with Flutter to participants of the club</li>
+      <li>Designing banners, posters, flyers for club events</li>
+    </ul>
+    <li style = "font-size:15px; font-family:Palatino">Middle East Technical University (2020-2021)</li>
+    <ul>
+      <i>UNDERGRADUATE TEACHING ASSISTANT</i>
+      <li>Organizing recitation hours every week to revise the course material</li>
+    </ul>
+  </ul>
+  <hr />
+  <p style ="font-size:20px; font-family:Impact; color:grey"> <b> SKILLS </b> </p>
+  <ul>
+    <li style = "font-size:15px; font-family:Palatino"> PROGRAMMING LANGUAGES   </li>
+    <ul>
+      <li> Experienced: Python | R </li>
+      <li> Familiar: C | Bash | MATLAB | Swift | Flutter </li>
+    </ul>
+    <li style = "font-size:15px; font-family:Palatino"> LANGUAGES </li>
+    <ul>
+      <li> Native: Turkish </li>
+      <li> Fluent: English </li>
+    </ul>
+  </ul>
+  <hr />
+  <p style ="font-size:20px; font-family:Impact; color:grey"> <b> PROJECTS AND RESEARCH </b></p>
+  <ul>
+    <i>Middle East Technical University (2021)</i>
+    <li><a href="https://www.researchgate.net/publication/349338908_Machine_Learning_A_powerful_tool_for_enhancing_customer_experience_through_sentiment_analysis">Machine Learning: A powerful tool for enhancing customer experience through sentiment analysis</a></li>
+  </ul>
+  <hr />
+  <p style ="font-size:20px; font-family:Impact; color:grey">HONORS</p>
+  <ul>
+    <i> Middle East Technical University (2019-2021)</i>
+    <li>High Honor Student - GPA above 3.5 </li>
+  </ul>
+  <hr />
+   <p style ="font-size:20px; font-family:Impact; color:grey">EXTRA</p>
+  <ul>
+    <li>METU Women's Rugby Team Member</li>
+    <li>METU Women's Rugby Football Member</li>
+  </ul>
+</div>
+
+
+
